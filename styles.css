@@ -291,6 +291,7 @@ button {
         padding: 5px;
         text-align: center;
         height: 190px;
+        margin-top: 20x;
         min-width: 190px;
         box-shadow: 2px 2px 5px hsla(0,0%,0%,0.1);
         box-sizing: border-box;
@@ -311,7 +312,7 @@ button {
         gap: 2px;
     }
     .weather-grid h4{
-        font-size: 10px;
+        font-size: 8px;
     }
     .product {
         background-color: white;
