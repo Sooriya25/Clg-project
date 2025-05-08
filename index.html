@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Efficient Crop Watering With Integrated Reward System</title>
+    <link rel="stylesheet" href="styles.css"> 
+</head>
+<body>
+    <header class="header">
+        <h1 id="header-title">EFFICIENT CROP WATERING WITH INTEGRATED REWARD SYSTEM</h1>
+        <p id="header-description">Combining Smart irrigation with the a rewarding web platform that encourages water saving actions through Aquacoins redeemable for farm essentials.</p>
+    </header>
+    <main>
+    <div class="container">
+        <div class="pump-control">
+            <h3>Manual Pump Control</h3>
+            <p>Manually control the irrigation pump while earning AquaPoints.</p>
+            <button id="pump-on">Turn ON</button>
+            <button id="pump-off">Turn OFF</button>
+            <p id="pump-status">Pump Status: OFF</p>
+        </div>
+
+        <div class="moisture">
+            <h3>Soil Moisture Data</h3>
+            <p>Current soil moisture level for optimal irrigation.</p>
+            <p>Turn on/off the pump between certain thresholds to earn Aquacoins🪙</p>
+            <h4 class="sensor-box"> Soil Moisture : <span id="moisture-level">Loading...</span>% </h4>
+        </div>
+        
+        <div class="rewards">
+            <h3>Smart Irrigation Rewards</h3>
+            <p>Earn Aquacoins by saving water efficiently.</p>
+            <h4 class="sensor-box"> Aquacoins🪙 : <span id="reward-points">100</span> </h4> 
+            <a href="redeem.html" class="redeem-link">🛒 Redeem</a>
+        </div>
+        
+
+        <div class="weather-data">
+            <h3>Current Weather Data</h3>
+            <p>Current weather in Trichy : <span id="weather-description">weather description</span> </p>
+            <p>For Rainfall Forecast: <a href="Rainfall.html">Click here!</a></p>
+            <div class="weather-grid">
+                <h4 class="sensor-box">Temperature: <span id="temp">--</span>°C</h4>
+                <h4 class="sensor-box">Humidity: <span id="humidity">--</span>%</h4>
+                <h4 class="sensor-box">Rain (last 1hr): <span id="rain">--</span> cm</h4>
+                <h4 class="sensor-box">Wind Speed: <span id="wind">--</span> m/s</h4>
+            </div>
+        </div>
+    </div>
+    </main>
+
+    <script src="script.js" defer></script>
+</body>
+</html>

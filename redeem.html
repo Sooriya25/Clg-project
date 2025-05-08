@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Redeem AquaPoints</title>
+    <link rel="stylesheet" href="styles.css">   
+</head>
+
+<header class="redeem-header">
+    <h1 >🛒 Redeem Aquacoins</h1>
+    <h3 >Aquacoins🪙 : <span id="reward-points">100</span></h3>
+    <p>Exchange your points for useful agricultural products.</p>
+    <a href="index.html" class="back-button">⬅ Back to Dashboard</a>
+</header>
+
+<body>
+    <main>
+        <div class="redeem-container">
+            <div class="product">
+                <img src="./Imgs/tool1.jpg" alt="Hoe" class="image">
+                <h3>Farm Hoe</h3>
+                <p>Cost: 80 Aqua Coins</p>
+                <button class="buy-btn" data-cost="80" data-item="farm_hoe">Redeem</button>
+            </div>
+            <div class="product">
+                <img src="./Imgs/tool2.jpg" alt="farm rake" class="image">
+                <h3>Garden Rake</h3>
+                <p>Cost: 80 Aqua Coins</p>
+                <button class="buy-btn" data-cost="80" data-item="garden_rake">Redeem</button>
+            </div>
+            <div class="product">
+                <img src="./Imgs/tool3.jpg" alt="Shovel" class="image">
+                <h3>Shovel</h3>
+                <p>Cost: 80 Aqua Coins</p>
+                <button class="buy-btn" data-cost="80" data-item="Shovel">Redeem</button>
+            </div>
+            <div class="product">
+                <img src="./Imgs/tool4.jpg" alt="sickle" class="image">
+                <h3>Sickle</h3>
+                <p>Cost: 80 Aqua Coins</p>
+                <button class="buy-btn" data-cost="80" data-item="sickle">Redeem</button>
+            </div>
+            <div class="product">
+                <img src="./Imgs/sprayer.jpg" alt="Sprayer" class="image">
+                <h3>Sprayer</h3>
+                <p>Cost: 500 Aqua Coins</p>
+                <button class="buy-btn" data-cost="500" data-item="sprayer">Redeem</button>
+            </div>
+            <div class="product">
+                <img src="./Imgs/funnel_seeds.jpg" alt="Fennel seeds" class="image">
+                <h3>Fennel seeds</h3>
+                <p>Cost: 100 Aqua Coins</p>
+                <button class="buy-btn" data-cost="100" data-item="funnel_seeds">Redeem</button>
+            </div>
+            <div class="product">
+                <img src="./Imgs/Wheat_seeds.jpg" alt="Wheat_seeds" class="image">
+                <h3>Wheat Seeds</h3>
+                <p>Cost: 100 Aqua Coins</p>
+                <button class="buy-btn" data-cost="100" data-item="Wheat_seeds">Redeem</button>
+            </div>
+            <div class="product">
+                <img src="./Imgs/pea_seads.jpg" alt="Pea seeds" class="image">
+                <h3>Pea Seeds</h3>
+                <p>Cost: 100 Aqua Coins</p>
+                <button class="buy-btn" data-cost="100" data-item="pea_seads">Redeem</button>
+            </div>
+            <div class="product">
+                <img src="./Imgs/chia_seeds.jpg" alt="Chia seeds" class="image">
+                <h3>Chia Seeds</h3>
+                <p>Cost: 100 Aqua Coins</p>
+                <button class="buy-btn" data-cost="100" data-item="chia_seeds">Redeem</button>
+            </div>
+            <div class="product">
+                <img src="./Imgs/Fertilizer.jpg" alt="Fertilizers" class="image">
+                <h3>Fertilizers</h3>
+                <p>Cost: 200 Aqua Coins</p>
+                <button class="buy-btn" data-cost="200" data-item="Fertilizers">Redeem</button>
+            </div>
+            <div class="product">
+                <img src="./Imgs/pvc pipes.jpg" alt="Farm pipes" class="image">
+                <h3>Farm Pipes 2M</h3>
+                <p>Cost: 150 Aqua Coins</p>
+                <button class="buy-btn" data-cost="150" data-item="farm_pipes">Redeem</button>
+            </div>
+            <div class="product">
+                <img src="./Imgs/plant_food.jpg" alt="Plant food" class="image">
+                <h3>Plant Food</h3>
+                <p>Cost: 200 Aqua Coins</p>
+                <button class="buy-btn" data-cost="200" data-item="Plant-food">Redeem</button>
+            </div>
+        </div>
+        <div class="popup-overlay">
+        </div>
+            <div class="popup-Box">
+                <div class="popup-box">
+                    <p>🎉 Congratulation!! you redeemed <span id="product-name">pvc pipes</span> successfully using Aquacoins🎉</p>
+                    <img src="./Imgs/pea_seads.jpg" alt="product image" class="image">
+                    <button id="popup-cancel-btn">OK</button>
+                </div>
+            </div>
+        
+    </main>
+    <script src="redeem.js" defer></script>
+</body>
+</html>

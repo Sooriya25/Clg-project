@@ -1,0 +1,345 @@
+
+body {
+    font-family: Arial, Helvetica, sans-serif sans-serif;
+    background-color: #9ad0f7;
+    color: #333;
+    text-align: center;
+    margin: 0;
+}
+
+header {
+    background-color: #0288d1;
+    color: white;
+    padding: 5px;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    height: 100px;
+}
+#header-title{
+    color: hsl(0, 0%, 100%);
+    font-size: 24px;
+    font-weight: bold;
+   text-shadow: 2px 2px 5px black;
+}
+#header-description{
+    color: hsl(0, 0%, 97%);
+    font-size: 14px;
+    text-shadow: 2px 2px 5px black;
+}
+
+h1, h2 ,h3{
+    margin-bottom: 5px;
+}
+
+p {
+    font-size: 14px;
+    padding: 5px;
+}
+
+button {
+    background-color: #0288d1;
+    color: white;
+    border: none;
+    padding: 10px;
+    margin: 5px;
+    cursor: pointer;
+    border-radius: 10px;
+}
+
+.redeem-header h1{
+    font-weight: bold;
+    font-size: 24px;
+    margin-top: 2px;
+    color: hsl(0, 0%, 100%);
+    text-shadow: 2px 2px 5px black;
+}
+.redeem-header p,.redeem-header a {
+    margin: 0;
+    padding: 0;
+    font-size: 12px;   
+}
+.redeem-header h3{
+    text-shadow: 2px 2px 5px black;  
+    font-size: 14px; 
+    margin-bottom: 5px; 
+}
+
+#pump-on{
+    background-color: green;
+}
+#pump-on:hover{
+    background-color: rgb(0, 64, 19);
+}
+#pump-off{
+    background-color: red;
+}
+#pump-off:hover{
+    background-color: rgb(132, 3, 3);
+}
+#pump-status{
+    color: rgb(7, 7, 221);
+}
+
+.container{
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    text-align: center;
+    place-items: center;
+    gap: 20px;
+    padding: 20px;
+    margin: 0px;
+    margin-top: 110px;
+}
+
+.pump-control, .weather-data,.moisture, .rewards {
+    background-color: white;
+    border: 1px solid hsl(0,0%,80%);
+    border-radius: 10px;
+    padding: 5px;
+    text-align: center;
+    height: 210px;
+    min-width: 550px;
+    box-shadow: 2px 2px 5px hsla(0,0%,0%,0.1);
+    box-sizing: border-box;
+}
+.weather-data P,.weather-data h2, .moisture p{
+    padding: 5px;
+    margin: 3px;
+}
+.moisture h4{
+    margin-top: 15px;
+}
+
+.redeem-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 120px;
+}
+
+.product {
+    background-color: white;
+    border: 1px solid hsl(0,0%,80%);
+    border-radius: 10px;
+    margin: 10px;
+    padding: 10px;
+    text-align: center;
+    max-width: 200px;
+    display: inline-block;
+    box-shadow: 2px 2px 5px hsla(0,0%,0%,0.1);
+}
+
+.product h3 {
+    font-family: Arial, sans-serif;
+    color: hsl(0,1%,22%);
+    margin: 5px;
+}
+.product p{
+    padding: 5px;
+    font-size: 13px;
+    margin: 5px;
+    text-shadow: 2px 2px 5px rgb(162, 162, 162);    
+    color: hsl(0, 0%, 0%);
+}
+.product img{
+    margin: 0;
+    padding: 0;
+    border-radius: 5px;
+    max-width: 60%;
+    height: auto;
+    margin-bottom: 10px;
+}
+
+.buy-btn {
+    background-color: hsl(200,100%,50%);
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+}
+.buy-btn:hover{
+    background-color: hsl(200, 98%, 22%);
+}
+
+.sensor-box{
+    background: #cceeff;
+    padding: 7px;
+    margin: 5px ;
+    border-radius: 5px;
+    font-weight: bold;
+    animation: fadeIn 1s ease-in-out;
+    text-align: center;
+}
+
+.weather-grid{
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    gap: 5px;
+}
+.weather-grid h4{
+    text-align: center;
+}
+.popup-overlay{
+    background-color: black;
+    opacity: 0.8;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    min-height: 100%;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 23;
+    display: none;
+}
+@keyframes popupBounce{
+    0%{
+        transform: translate(-50%,-50%)scale(0.7);
+        opacity: 0;
+    }
+    50%{
+        transform: translate(-50%,-50%)scale(1.5);
+        opacity: 1;
+    }
+    0%{
+        transform: translate(-50%,-50%)scale(1);
+        opacity: 1;
+    }
+}
+.popup-Box{
+    display: none;
+    transition: all 0.3s ease;
+    padding: 10px;
+}
+.popup-box{
+    background-color: rgb(250, 248, 248);
+    width: 300px;
+    height: 300px;
+    padding: 10px 20px;
+    border-radius: 10px;
+    position: absolute;
+    top: 30%;
+    left: 35%;
+    z-index: 25;
+    box-shadow: 2px 2px 2px hsl(200,100%,50%);
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    
+}
+.popup-box img{
+    border: none;
+    height: 150px;
+    width: 150px;
+    margin: 10px;
+    padding: 5px;
+    border-radius: 15px;
+}
+.popup-box p {
+    padding: 10px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    font-family:  Times, 'Times New Roman', serif;
+    text-shadow: 1px 1px 5px hsl(200, 75%, 83%);
+    margin: 5px;
+}
+.popup-box button{
+   font-size: 20px;
+   padding: 5px 20px;
+   font-weight: bold;
+   color: #fff9f9;
+   cursor: pointer;
+}
+.popup-box button:hover{
+    background-color:   hsl(200, 100%, 36%);
+}
+@media (max-width: 600px){
+    #header-title{
+        font-size: 14px;
+    }
+    #header-description{
+        font-size: 10px;
+    }
+    .container{
+        display: grid;
+        grid-template-columns: repeat(2,1fr);
+        justify-content: center;
+        align-content: center;
+        align-items: center;
+        text-align: center;
+        place-items: center;
+        gap: 20px;
+        padding: 20px;
+        margin: 0px;
+        margin-top: 110px;
+    }
+    .container h3{
+        font-size: 12px;
+    }
+    .container p{
+        font-size: 10px;
+    }
+    
+    .pump-control, .weather-data,.moisture, .rewards {
+        border-radius: 10px;
+        padding: 5px;
+        text-align: center;
+        height: 190px;
+        min-width: 190px;
+        box-shadow: 2px 2px 5px hsla(0,0%,0%,0.1);
+        box-sizing: border-box;
+    }
+    .weather-data P,.weather-data h2, .moisture p{
+        padding: 5px;
+        margin: 3px;
+    }
+    .moisture h4{
+        margin-top: 5px;
+    }
+    .sensor-box{
+        font-size: 12px;
+    }
+    .weather-grid{
+        display: grid;
+        grid-template-columns: repeat(2,1fr);
+        gap: 2px;
+    }
+    .weather-grid h4{
+        font-size: 10px;
+    }
+    .product {
+        background-color: white;
+        border: 1px solid hsl(0,0%,80%);
+        border-radius: 10px;
+        margin: 10px;
+        padding: 10px;
+        text-align: center;
+        max-width: 120px;
+        display: inline-block;
+        box-shadow: 2px 2px 5px hsla(0,0%,0%,0.1);
+    }
+    .product h3{
+        font-size: 12px;
+        padding: none;
+        margin: none;
+    }
+    .product p{
+        font-size: 8px;
+        padding: none;
+        margin: none;
+    }
+    .product button{
+        font-size: 8px;
+        padding: 5px 7px;
+    }
+    .header{
+        height: auto;
+    }
+    
+}
