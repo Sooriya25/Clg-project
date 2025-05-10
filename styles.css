@@ -18,7 +18,7 @@ header {
     color: white;
     padding: 5px;
     width: 100%;
-    position: fixed;
+    position: absolute;
     top: 0;
     height: 100px;
 }
@@ -127,7 +127,7 @@ main{
     background-color: #0288d1;
     color: white;
     padding: 5px;
-    width: 100vw;
+    width: 100%;
     bottom: 0;
     height: auto;
     margin-bottom: 0;
@@ -145,7 +145,7 @@ main{
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
-    margin-top: 470px;
+    margin-top: 500px;
 }
 
 .product {

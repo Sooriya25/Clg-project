@@ -3,22 +3,37 @@ body {
     background: #66a6d3;
     color: #333;
     margin: 0;
-    padding: 20px;
     display: flex;
     justify-content: center;
     flex-direction: column;
   }
+
+  header {
+    display: flex;
+    justify-content: center;
+    background-color: #0288d1;
+    align-items: center;
+    color: white;
+    padding: 5px;
+    width: 100%;
+    position: fixed; /* Keeps it on top while scrolling */
+    top: 0;
+    height: 50px;
+    z-index: 1000; /* Ensures it stays above other content */
+  }
+  
   
   h1 {
     text-align: center;
     color: #ffffff;
     font-family: 'Times New Roman', Times, serif;
     text-shadow: 2px 2px 5px black;
+    margin: 20px;
   }
   
   .forecast-container {
-    max-width: 700px;
-    margin: 20px auto;
+    place-items: center;
+    margin-top: 70px; 
     background: white;
     border-radius: 10px;
     padding: 20px;
