@@ -127,6 +127,7 @@ main{
     color: white;
     padding: 5px;
     width: 100%;
+    margin: 0;
     bottom: 0;
     height: auto;
 }
