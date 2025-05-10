@@ -287,6 +287,7 @@ main{
     background-color:   hsl(200, 100%, 36%);
 }
 @media (max-width: 600px){
+    
     #header-title{
         font-size: 14px;
     }
@@ -343,6 +344,7 @@ main{
     }
     .redeem-container{
         padding: 10px;
+        margin-top: 500px;
     }
     .product {
         background-color: white;
@@ -351,7 +353,7 @@ main{
         margin: 10px;
         padding: 10px;
         text-align: center;
-        max-width: 140px;
+        max-width: 150px;
         display: inline-block;
         box-shadow: 2px 2px 5px hsla(0,0%,0%,0.1);
     }
