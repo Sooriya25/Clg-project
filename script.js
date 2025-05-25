@@ -129,7 +129,7 @@ document.addEventListener("DOMContentLoaded", function () {
             moistureLevel = data.moisture
             setMoisture(data.moisture)
 
-            pumpStatusElement.textContent = Pump Status: ${data.pump ? 'ON' : 'OFF'}
+            pumpStatusElement.textContent = `Pump Status: ${data.pump ? 'ON' : 'OFF'}`
 
 
         }
