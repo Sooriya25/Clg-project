@@ -2,7 +2,8 @@ document.addEventListener("DOMContentLoaded", function () {
     console.log("DOM fully loaded and parsed!");
 
     // Initialize values
-    let moistureLevel = Math.floor(Math.random() * 101);
+    // let moistureLevel = Math.floor(Math.random() * 101);
+    let moistureLevel
     let storedCoins = localStorage.getItem("aquaCoins");
     let aquaCoins = storedCoins ? parseInt(storedCoins) : 500;
     localStorage.setItem("aquaCoins", aquaCoins);
@@ -15,62 +16,64 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Reward flags and cooldown state
     let cooldown = false;
-    let hasRewardedLow = false;
-    let hasRewardedHigh = false;
+
+
+    const addReward = () => {
+        console.log("adding reward")
+        aquaCoins += 10;
+        rewardPointsElement.textContent = aquaCoins;
+        localStorage.setItem("aquaCoins", aquaCoins);
+        alert("🎉 congratulation you won +10 Aquacoins! ");
+        cooldown = true
+        setTimeout(() => cooldown = false, 1 * 60 * 1000)
+    }
 
     // Function to handle rewards
-    function rewardUserIfValid(condition, message, rewardType) {
+    function rewardUserIfValid(type) {
+        console.log({ cooldown, type, moistureLevel })
+        if (cooldown) return
 
-        if (condition) {
-            if ((rewardType === "low" && hasRewardedLow) || (rewardType === "high" && hasRewardedHigh)) {
-                return;
-            }
+        if (type == 'on' && moistureLevel < 30)
+            addReward()
 
-            aquaCoins += 10;
-            rewardPointsElement.textContent = aquaCoins;
-            localStorage.setItem("aquaCoins", aquaCoins);
-            alert("🎉 +10 Aquacoins! " + message);
-
-            if (rewardType === "low") hasRewardedLow = true;
-            if (rewardType === "high") hasRewardedHigh = true;
-
-            cooldown = true;
-            setTimeout(() => {
-                cooldown = false;
-            }, 20000); // 20 seconds
-        }
+        if (type == 'off' && moistureLevel > 80)
+            addReward()
     }
 
     // Pump control event listeners
     document.getElementById("pump-on").addEventListener("click", function () {
-        pumpStatusElement.textContent = "Pump Status: ON";
+        // pumpStatusElement.textContent = "Pump Status: ON";
         rewardUserIfValid(
-            moistureLevel >= 1 && moistureLevel <= 20,
-            "Efficient watering at low moisture!",
-            "low"
+            "on"
         );
+        if (socket.OPEN) {
+            socket.send('on')
+        }
+
     });
 
     document.getElementById("pump-off").addEventListener("click", function () {
-        pumpStatusElement.textContent = "Pump Status: OFF";
+        // pumpStatusElement.textContent = "Pump Status: OFF";
         rewardUserIfValid(
-            moistureLevel >= 80 && moistureLevel <= 99,
-            "Smart water saving at high moisture!",
-            "high"
+            "off"
         );
+        if (socket.OPEN) {
+            socket.send('off')
+        }
+
     });
 
     // Simulate changing moisture level every 10 seconds
-    setInterval(() => {
-        moistureLevel = Math.floor(Math.random() * 101);
-        moistureLevelElement.textContent = moistureLevel;
+    // setInterval(() => {
+    //     moistureLevel = Math.floor(Math.random() * 101);
+    //     moistureLevelElement.textContent = moistureLevel;
 
-        // Reset reward flags when out of range
-        if (moistureLevel < 10 || moistureLevel > 30) hasRewardedLow = false;
-        if (moistureLevel < 80 || moistureLevel > 100) hasRewardedHigh = false;
+    //     // Reset reward flags when out of range
+    //     if (moistureLevel < 10 || moistureLevel > 30) hasRewardedLow = false;
+    //     if (moistureLevel < 80 || moistureLevel > 100) hasRewardedHigh = false;
 
-        console.log("New moisture level:", moistureLevel);
-    }, 10000);
+    //     console.log("New moisture level:", moistureLevel);
+    // }, 10000);
 
     // Fetch real-time weather data
     const apiUrl = 'https://api.openweathermap.org/data/2.5/weather?lat=11.01467&lon=78.79309&appid=c3e05129d976e9d894fc23a37b949193&units=metric';
@@ -95,7 +98,44 @@ document.addEventListener("DOMContentLoaded", function () {
         });
 
 
-        
+    const setMoisture = (moistureLevel) => {
+
+        moistureLevelElement.textContent = moistureLevel;
+
+        // Reset reward flags when out of range
+        if (moistureLevel < 10 || moistureLevel > 30) hasRewardedLow = false;
+        if (moistureLevel < 80 || moistureLevel > 100) hasRewardedHigh = false;
+
+        console.log("New moisture level:", moistureLevel);
+    }
+
+
+
+    let socket = new WebSocket("ws://192.168.5.139:81");
+    // let socket = new WebSocket("ws://127.0.0.1:80");
+
+    socket.onopen = () => {
+        console.log("websocket connected");
+    };
+
+    socket.onerror = (err) => {
+        console.log("websocket err", err);
+    };
+
+    socket.onmessage = (e) => {
+        try {
+            let data = JSON.parse(e.data)
+            console.log(data)
+            moistureLevel = data.moisture
+            setMoisture(data.moisture)
+
+            pumpStatusElement.textContent = Pump Status: ${data.pump ? 'ON' : 'OFF'}
+
+
+        }
+        catch (err) { }
+
+    };
 
 
 
