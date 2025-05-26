@@ -111,7 +111,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 
-    let socket = new WebSocket("ws://192.168.5.139:81");
+    let socket = new WebSocket("ws://192.168.30.96:81");
     // let socket = new WebSocket("ws://127.0.0.1:80");
 
     socket.onopen = () => {
